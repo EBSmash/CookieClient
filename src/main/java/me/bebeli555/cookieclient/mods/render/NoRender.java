@@ -24,6 +24,7 @@ import net.minecraftforge.client.event.RenderBlockOverlayEvent.OverlayType;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class NoRender extends Mod {
+	public static Setting noPlayers = new Setting(Mode.BOOLEAN, "NoPlayers", false, "Squid Games");
 	public static Setting noItems = new Setting(Mode.BOOLEAN, "NoItems", false, "Doesnt render items");
 	public static Setting fire = new Setting(Mode.BOOLEAN, "Fire", false, "Doesnt render fire overlay");
 	public static Setting hurtCamera = new Setting(Mode.BOOLEAN, "HurtCamera", false, "Doesnt render hurtcam effect");
@@ -52,6 +53,12 @@ public class NoRender extends Mod {
     @EventHandler
     private Listener<RenderEntityEvent> onRenderEntity = new Listener<>(event -> {
         if (event.entity instanceof EntityItem && noItems.booleanValue()) {
+            event.cancel();
+        }
+    });
+    @EventHandler
+    private Listener<RenderEntityEvent> onRenderEntity = new Listener<>(event -> {
+        if (event.entity instanceof EntityPlayer && noPlayers.booleanValue()) {
             event.cancel();
         }
     });
