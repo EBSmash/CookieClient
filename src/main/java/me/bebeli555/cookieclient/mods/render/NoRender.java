@@ -17,6 +17,7 @@ import me.bebeli555.cookieclient.gui.Group;
 import me.bebeli555.cookieclient.gui.Mode;
 import me.bebeli555.cookieclient.gui.Setting;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.item.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.network.play.server.SPacketEntityStatus;
 import net.minecraftforge.client.event.RenderBlockOverlayEvent;
